@@ -1,36 +1,34 @@
-import React,  { Component} from "react";
+import React, { Component } from "react";
 
-class EvenClicks extends Component {
+class CountBy extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            clicked: false
+            counter: 0
         }
 
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
-        const current = this.state.clicked
-
         this.setState({
-            clicked: !current
+            counter: this.state.counter + 5
         })
     }
-
+    
     render() {
         return (
             <p onClick={ this.handleClick }>
-                { !this.state.clicked ? "Even" : "Odd" }
+                { this.state.counter }
             </p>
         )
     }
 }
 
-export default EvenClicks;
+export default CountBy;
 
-// Create a component <EvenClicks> that displays "Even" if it's been clicked an even number of times and "Odd" if it's been clicked an odd number of times.
+// Create a component <CountBy step={ 5 }> that takes a step prop. It should display a number (starting at 0) inside a <p>. Every time it is clicked the number should go up by step.
 
 // 1. Render the HTML on page
 // 2. Track data in state and use that state to update our display
